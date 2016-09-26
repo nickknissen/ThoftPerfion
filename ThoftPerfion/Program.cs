@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThoftPerfion.Perfion;
 
 namespace ThoftPerfion
 {
@@ -12,7 +13,10 @@ namespace ThoftPerfion
         {
             try
             {
-
+                using (PerfionHelper pHelper = new PerfionHelper())
+                {
+                    
+                }
             }
             catch (Exception ex)
             {
