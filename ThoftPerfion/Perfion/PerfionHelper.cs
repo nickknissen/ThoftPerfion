@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Perfion.Api;
+using Pims.Api;
 
 namespace ThoftPerfion.Perfion
 {
@@ -12,6 +13,9 @@ namespace ThoftPerfion.Perfion
     {
         private PerfionApi _PerfionApi;
 
+        /// <summary>
+        /// Requires that Perfion.ConnectionString is set in the .config file
+        /// </summary>
         public PerfionHelper()
             : this(ConfigurationManager.AppSettings["Perfion.ConnectionString"])
         {
@@ -25,6 +29,13 @@ namespace ThoftPerfion.Perfion
         public void Dispose()
         {
             _PerfionApi = null;
+        }
+
+        public string QueryString(string query)
+        {
+            string result = _PerfionApi.ExecuteQueryAsXml(query);
+            return result;
+
         }
     }
 }
